@@ -6,12 +6,19 @@ $(".btn").click(function () {
   const colorClicked = this.id;
   userPattern.push(colorClicked);
   playSound(colorClicked)
-  console.log(userPattern)
+  animatePress(colorClicked);
 });
 
 function playSound(name) {
     let audio = new Audio(`sounds/${name}.mp3`);
     audio.play();
+}
+
+function animatePress(color) {
+    $(`#${color}`).addClass('pressed');
+    setTimeout(() => {
+        $(`#${color}`).removeClass('pressed');
+    }, 100);
 }
 function nextSequence() {
   let randomNum = Math.floor(Math.random() * 4);
