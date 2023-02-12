@@ -19,7 +19,7 @@ $(".btn").click(function () {
   playSound(colorClicked);
   animatePress(colorClicked);
 
-  checkAnswer(userPattern.length-1);
+  checkAnswer(userPattern.length - 1);
 });
 
 function playSound(name) {
@@ -57,7 +57,12 @@ function checkAnswer(currentLevel) {
       }, 1000);
     }
   } else {
-    console.log("wrong");
-    playSound("wrong")
+    playSound("wrong");
+    $("body").addClass("game-over");
+    setTimeout(() => {
+      $("body").removeClass("game-over");
+    }, 200);
+    isStarted = false;
+    $("#level-title").text('Game Over, Press Any Key to Restart');
   }
 }
