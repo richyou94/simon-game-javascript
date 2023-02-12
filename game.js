@@ -5,15 +5,16 @@ let gamePattern = [];
 
 
 function nextSequence() {
-    console.log('function for next sequence')
+    
 let randomNum = Math.floor(Math.random() * 4)
 let randomColor = btnColors[randomNum];
-const audio = new Audio(`./sounds/${randomColor}`);
 
+$(`#${randomColor}`).fadeOut(100).fadeIn(100);
+var audio = new Audio(`sounds/${randomColor}.mp3`);
+audio.play();
 gamePattern.push(randomColor);
 }
 
 nextSequence();
-console.log(gamePattern)
 
-$("#blue").fadeOut(100).fadeIn(100);
+
